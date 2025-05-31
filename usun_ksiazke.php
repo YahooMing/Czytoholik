@@ -1,19 +1,15 @@
 <?php
 session_start();
 require_once "conn.php";
-
-// Sprawdzenie, czy użytkownik to pracownik
 if (!isset($_SESSION['rola']) || $_SESSION['rola'] !== 'pracownik') {
     header("Location: index.php");
     exit();
 }
 
-// Obsługa usuwania książki
 $komunikat = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_ksiazki'])) {
     $id = $_POST['id_ksiazki'];
 
-    // Sprawdź, czy są powiązane egzemplarze
     $stmt = $conn->prepare("SELECT COUNT(*) FROM egzemplarze WHERE k_id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
@@ -31,8 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_ksiazki'])) {
         $komunikat = "Książka została usunięta.";
     }
 }
-
-// Pobierz wszystkie książki
 $ksiazki = $conn->query("SELECT * FROM ksiazki");
 ?>
 

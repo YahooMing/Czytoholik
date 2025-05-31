@@ -9,11 +9,9 @@ if (!isset($_SESSION['rola']) || $_SESSION['rola'] !== 'czytelnik') {
 
 $id_czytelnika = $_SESSION['id_czytelnika'];
 
-// Obsługa usunięcia rezerwacji
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id_rezerwacji'])) {
     $id_rezerwacji = intval($_POST['id_rezerwacji']);
 
-    // Sprawdź, czy rezerwacja należy do zalogowanego czytelnika
     $check = $conn->prepare("SELECT id_rezerwacji FROM rezerwacje WHERE id_rezerwacji = ? AND c_id = ?");
     $check->bind_param("ii", $id_rezerwacji, $id_czytelnika);
     $check->execute();
@@ -30,7 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id_rezerwacji'])) {
     $check->close();
 }
 
-// Pobierz rezerwacje do wyświetlenia
 $stmt = $conn->prepare("
     SELECT r.id_rezerwacji, r.data_rezerwacji, k.tytul, k.autor
     FROM rezerwacje r

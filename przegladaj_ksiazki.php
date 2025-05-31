@@ -7,7 +7,6 @@ if (!isset($_SESSION['rola']) || $_SESSION['rola'] !== 'pracownik') {
     exit();
 }
 
-// Pobieranie książek wraz z liczbą egzemplarzy
 $sql = "
     SELECT
         k.id_ksiazki,

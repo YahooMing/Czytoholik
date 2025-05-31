@@ -9,11 +9,9 @@ if (!isset($_SESSION['rola']) || $_SESSION['rola'] !== 'czytelnik') {
 
 $id_czytelnika = $_SESSION['id_czytelnika'];
 
-// Obsługa spłaty kary
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_kary'])) {
     $id_kary = intval($_POST['id_kary']);
 
-    // Aktualizujemy status kary na "zapłacona"
     $stmt = $conn->prepare("UPDATE kary k
         JOIN wypozyczenia w ON k.w_id = w.id_wypozyczenia
         SET k.status_kary = 'zapłacona', k.kwota_kary = 0
@@ -25,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_kary'])) {
     $msg = "Kara została spłacona.";
 }
 
-// Pobieramy niezapłacone kary użytkownika
 $sql = "SELECT k.id_kary, k.kwota_kary, w.data_wypozyczenia, k.status_kary,
                ks.tytul, e.egzemplarz
         FROM kary k

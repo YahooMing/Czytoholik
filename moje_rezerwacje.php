@@ -9,7 +9,6 @@ if (!isset($_SESSION['rola']) || $_SESSION['rola'] !== 'czytelnik') {
 
 $id_czytelnika = $_SESSION['id_czytelnika'];
 
-// Pobierz wszystkie rezerwacje zalogowanego czytelnika
 $sql = "
 SELECT
     r.id_rezerwacji,

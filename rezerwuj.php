@@ -9,7 +9,6 @@ if (!isset($_SESSION['rola']) || $_SESSION['rola'] !== 'czytelnik') {
 
 $id_czytelnika = $_SESSION['id_czytelnika'];
 
-// Obsługa formularza
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $e_id = $_POST['e_id'];
     $data_rezerwacji = date('Y-m-d');
@@ -22,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
 }
 
-// Pobierz dostępne egzemplarze: NIE wypożyczone i NIE zarezerwowane
 $sql = "
 SELECT e.id_egzemplarz, k.tytul, k.autor, e.egzemplarz, e.stan
 FROM egzemplarze e
