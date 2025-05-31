@@ -1,0 +1,14 @@
+.back-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.back-button a {
+    text-decoration: none;
+    color: #4285F4;
+    font-weight: bold;
+    font-size: 16px;
+}
+.back-button a:hover {
+    color: #306acb;
+}
