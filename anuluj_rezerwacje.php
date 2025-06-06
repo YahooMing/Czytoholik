@@ -8,10 +8,8 @@ if (!isset($_SESSION['rola']) || $_SESSION['rola'] !== 'czytelnik') {
 }
 
 $id_czytelnika = $_SESSION['id_czytelnika'];
-
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id_rezerwacji'])) {
     $id_rezerwacji = intval($_POST['id_rezerwacji']);
-
     $check = $conn->prepare("SELECT id_rezerwacji FROM rezerwacje WHERE id_rezerwacji = ? AND c_id = ?");
     $check->bind_param("ii", $id_rezerwacji, $id_czytelnika);
     $check->execute();
@@ -27,7 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id_rezerwacji'])) {
     }
     $check->close();
 }
-
 $stmt = $conn->prepare("
     SELECT r.id_rezerwacji, r.data_rezerwacji, k.tytul, k.autor
     FROM rezerwacje r
@@ -54,19 +51,6 @@ $result = $stmt->get_result();
         form { display: inline; }
         button { background-color: #d9534f; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
         button:hover { background-color: #c9302c; }
-        .back-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-        .back-button a {
-            text-decoration: none;
-            color: #4285F4;
-            font-weight: bold;
-        }
-        .back-button a:hover {
-            color: #306acb;
-        }
         .message {
             text-align: center;
             color: green;
@@ -76,7 +60,7 @@ $result = $stmt->get_result();
 </head>
 <body>
     <div class="back-button">
-        <a href="menu.php">🔙 Wróć</a>
+        <a href="menu.php"><-- Wróć</a>
     </div>
 
     <div class="container">

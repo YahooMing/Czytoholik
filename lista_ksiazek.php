@@ -7,7 +7,6 @@ if (!isset($_SESSION['rola']) || $_SESSION['rola'] !== 'pracownik') {
     exit();
 }
 
-// Pobieranie książek wraz z liczbą egzemplarzy
 $sql = "
     SELECT
         k.id_ksiazki,
@@ -37,8 +36,6 @@ $result = $conn->query($sql);
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
         th { background-color: #f2f2f2; }
-        .back { position: absolute; top: 20px; right: 20px; }
-        .back a { text-decoration: none; background: #4285F4; color: white; padding: 8px 12px; border-radius: 5px; }
     </style>
 </head>
 <body>
@@ -64,9 +61,9 @@ $result = $conn->query($sql);
                 <td><?= htmlspecialchars($row['kategoria']) ?></td>
                 <td><?= $row['liczba_egzemplarzy'] ?></td>
                 <td>
-                    <a href="edytuj_ksiazke.php?id=<?= $row['id_ksiazki'] ?>">✏️ Edytuj</a> |
-                    <a href="usun_ksiazke.php?id=<?= $row['id_ksiazki'] ?>" onclick="return confirm('Na pewno chcesz usunąć książkę?')">🗑 Usuń</a> |
-                    <a href="dodaj_egzemplarz.php?id=<?= $row['id_ksiazki'] ?>">➕ Dodaj egzemplarz</a>
+                    <a href="edytuj_ksiazke.php?id=<?= $row['id_ksiazki'] ?>">Edytuj</a> |
+                    <a href="usun_ksiazke.php?id=<?= $row['id_ksiazki'] ?>" onclick="return confirm('Na pewno chcesz usunąć książkę?')">Usuń</a> |
+                    <a href="dodaj_egzemplarz.php?id=<?= $row['id_ksiazki'] ?>">Dodaj egzemplarz</a>
                 </td>
             </tr>
             <?php endwhile; ?>

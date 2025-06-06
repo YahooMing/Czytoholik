@@ -31,7 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <link rel="stylesheet" type="text/css" href="button.css">
     <meta charset="UTF-8">
     <title>dodaj_czytelnika</title>
     <style>
@@ -40,8 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         h2 { text-align: center; }
         form { display: flex; flex-direction: column; gap: 15px; }
         input[type="text"], input[type="email"] { padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
-        button { padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
-        button:hover { background-color: #388e3c; }
         .message { text-align: center; margin-top: 15px; }
     </style>
 </head>

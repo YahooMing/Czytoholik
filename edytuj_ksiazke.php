@@ -47,12 +47,11 @@ $ksiazki = $conn->query("SELECT * FROM ksiazki");
         form { display: flex; flex-direction: column; gap: 10px; }
         label { font-weight: bold; }
         input, select, button { padding: 8px; font-size: 16px; }
-        .back { position: absolute; top: 20px; right: 20px; }
         .info { color: green; text-align: center; }
     </style>
 </head>
 <body>
-    <a class="back" href="menu.php">🔙 Wróć</a>
+    <a class="back" href="menu.php"><-- Wróć</a>
     <div class="container">
         <h2>Edytuj książkę</h2>
 

@@ -38,10 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         body { font-family: Arial; background-color: #f0f0f0; padding: 20px; }
         .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; }
         input, select, textarea { width: 100%; padding: 10px; margin: 8px 0; border-radius: 5px; border: 1px solid #ccc; }
-        button { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
-        button:hover { background-color: #45a049; }
-        .back { position: absolute; top: 20px; right: 20px; }
-        .back a { text-decoration: none; background: #4285F4; color: white; padding: 8px 12px; border-radius: 5px; }
         .msg { color: green; margin-bottom: 10px; }
     </style>
 </head>

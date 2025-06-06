@@ -9,6 +9,7 @@ if (!isset($_SESSION['rola']) || $_SESSION['rola'] !== 'czytelnik') {
 
 $id_czytelnika = $_SESSION['id_czytelnika'];
 
+// Pobierz wszystkie rezerwacje zalogowanego czytelnika
 $sql = "
 SELECT
     r.id_rezerwacji,
@@ -42,19 +43,6 @@ $result = $stmt->get_result();
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         th, td { padding: 10px; border-bottom: 1px solid #ccc; text-align: left; }
         th { background-color: #f0f0f0; }
-        .back-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-        .back-button a {
-            text-decoration: none;
-            color: #4285F4;
-            font-weight: bold;
-        }
-        .back-button a:hover {
-            color: #306acb;
-        }
         .btn-cancel {
             background: #e74c3c;
             color: white;
@@ -70,7 +58,7 @@ $result = $stmt->get_result();
 </head>
 <body>
     <div class="back-button">
-        <a href="menu.php">🔙 Wróć</a>
+        <a href="menu.php"><-- Wróć</a>
     </div>
 
     <div class="container">

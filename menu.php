@@ -18,7 +18,6 @@ if (!isset($_SESSION['rola'])){
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <link rel="stylesheet" type="text/css" href="button.css">
     <meta charset="UTF-8">
     <title>menu</title>
     <style>
@@ -27,13 +26,11 @@ if (!isset($_SESSION['rola'])){
         h2 { text-align: center; }
         ul { list-style: none; padding: 0; }
         li { margin: 10px 0; }
-        a { text-decoration: none; font-size: 18px; color: #2a2a2a; }
-        a:hover { color: #4CAF50; }
     </style>
 </head>
 <body>
 <div class="back-button">
-    <a href="javascript:history.back()"><--- Wróć</a>
+    <a href="index.php"><-- Zmień użytkownika</a>
 </div>
     <div class="container">
         <h2>Siema, <?= $_SESSION['rola'] === 'pracownik' ? 'pracowniku' : 'czytelniku' ?>!</h2>
@@ -43,15 +40,15 @@ if (!isset($_SESSION['rola'])){
             <li><a href="lista_ksiazek.php">Przeglądaj książki (Read)</a></li>
             <li><a href="edytuj_ksiazke.php">Edytuj książkę (Update)</a></li>
             <li><a href="usun_ksiazke.php">Usuń książkę (Delete)</a></li>
-            <li><a href="dodaj_egzemplarz.php">Dodaj egzemplarz</a></li>
-            <li><a href="dodaj_czytelnika.php">Dodaj czytelnika</a></li>
-            <li><a href="lista_czytelnikow.php">Zarządzaj czytelnikami</a></li>
-            <li><a href="historia_wypozyczen.php">Historia wypożyczeń</a></li>
+            <li><a href="dodaj_egzemplarz.php">Dodaj egzemplarz (Create)</a></li>
+            <li><a href="dodaj_czytelnika.php">Dodaj czytelnika (Create)</a></li>
+            <li><a href="lista_czytelnikow.php">Wyświetl czytelników (Read)</a></li>
         <?php else: ?>
             <li><a href="rezerwuj.php">Zarezerwuj książkę (Create)</a></li>
             <li><a href="moje_rezerwacje.php">Moje rezerwacje (Read)</a></li>
             <li><a href="anuluj_rezerwacje.php">Anuluj rezerwację (Delete)</a></li>
             <li><a href="moje_wypozyczenia.php">Moje wypożyczenia (Read)</a></li>
+            <li><a href="edytuj_mnie.php">Moje dane (Update)</a></li>
 
             <?php
             // musze sprawdzic czy są jakies kary zanim dam mozliwosc zapłaty

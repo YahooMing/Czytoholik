@@ -45,24 +45,11 @@ $result = $conn->query($sql);
         h2 { text-align: center; }
         form { margin-top: 20px; }
         select, button { width: 100%; padding: 10px; margin-top: 10px; }
-        .back-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-        .back-button a {
-            text-decoration: none;
-            color: #4285F4;
-            font-weight: bold;
-        }
-        .back-button a:hover {
-            color: #306acb;
-        }
     </style>
 </head>
 <body>
     <div class="back-button">
-        <a href="menu.php">🔙 Wróć</a>
+        <a href="menu.php"><-- Wróć</a>
     </div>
 
     <div class="container">

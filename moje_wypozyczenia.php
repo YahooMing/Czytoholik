@@ -21,12 +21,10 @@ $id_czytelnika = $_SESSION['id_czytelnika'];
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
         th { background-color: #eee; }
-        .back { position: absolute; top: 20px; right: 20px; }
-        .back a { text-decoration: none; background: #4285F4; color: white; padding: 8px 12px; border-radius: 5px; }
     </style>
 </head>
 <body>
-    <div class="back"><a href="menu.php">← Wróć</a></div>
+    <div class="back"><a href="menu.php"><-- Wróć</a></div>
     <div class="container">
         <h2>Moje wypożyczenia</h2>
 

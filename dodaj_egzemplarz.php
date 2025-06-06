@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once "conn.php";
-
 if (!isset($_SESSION['rola']) || $_SESSION['rola'] !== 'pracownik') {
     header("Location: index.php");
     exit();
@@ -27,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $komunikat = "Wszystkie pola są wymagane.";
     }
 }
-
 $ksiazki = $conn->query("SELECT id_ksiazki, tytul, autor FROM ksiazki");
 ?>
 
@@ -41,13 +39,11 @@ $ksiazki = $conn->query("SELECT id_ksiazki, tytul, autor FROM ksiazki");
         .container { background: white; padding: 20px; max-width: 600px; margin: auto; border-radius: 10px; }
         h2 { text-align: center; }
         form { display: flex; flex-direction: column; gap: 15px; }
-        input, select, button { padding: 10px; font-size: 16px; }
         .info { color: green; text-align: center; }
-        .back { position: absolute; top: 20px; right: 20px; }
     </style>
 </head>
 <body>
-    <a class="back" href="menu.php">🔙 Wróć</a>
+    <a class="back" href="menu.php"><-- Wróć</a>
     <div class="container">
         <h2>Dodaj egzemplarz</h2>
 

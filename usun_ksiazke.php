@@ -5,7 +5,6 @@ if (!isset($_SESSION['rola']) || $_SESSION['rola'] !== 'pracownik') {
     header("Location: index.php");
     exit();
 }
-
 $komunikat = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_ksiazki'])) {
     $id = $_POST['id_ksiazki'];
@@ -27,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_ksiazki'])) {
         $komunikat = "Książka została usunięta.";
     }
 }
+
 $ksiazki = $conn->query("SELECT * FROM ksiazki");
 ?>
 
@@ -40,14 +40,12 @@ $ksiazki = $conn->query("SELECT * FROM ksiazki");
         .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; }
         h2 { text-align: center; }
         form { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
-        select, button { padding: 10px; font-size: 16px; }
         .info { text-align: center; color: green; font-weight: bold; }
         .error { text-align: center; color: red; font-weight: bold; }
-        .back { position: absolute; top: 20px; right: 20px; }
     </style>
 </head>
 <body>
-    <a class="back" href="menu.php">🔙 Wróć</a>
+    <a class="back" href="menu.php"><-- Wróć</a>
     <div class="container">
         <h2>Usuń książkę</h2>
 
